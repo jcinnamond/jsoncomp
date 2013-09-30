@@ -43,6 +43,13 @@ func ExampleDifferentKeys() {
 	// Output: JSON is different
 }
 
+func ExampleDifferentKeysWithNull() {
+	str1 := `{"key1": null}`
+	str2 := `{"key2": null}`
+	comp(str1, str2)
+	// Output: JSON is different
+}
+
 func ExampleDifferentStrings() {
 	str1 := `{"key1": "value"}`
 	str2 := `{"key1": "different value"}`
@@ -75,7 +82,10 @@ func ExampleDifferentObjects() {
 	str1 := `{"key1": "value1"}`
 	str2 := `{"key1": "value1", "key2": "value2"}`
 	comp(str1, str2)
-	// Output: JSON is different
+	comp(str2, str1)
+	// Output:
+	// JSON is different
+	// JSON is different
 }
 
 func ExampleDifferentTypes() {

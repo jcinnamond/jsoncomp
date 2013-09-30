@@ -27,7 +27,8 @@ func CompObjects(a, b interface{}) bool {
 
 		eq := true
 		for k, v := range x {
-			eq = eq && CompObjects(v, y[k])
+			v2, found := y[k]
+			eq = eq && found && CompObjects(v, v2)
 		}
 		return eq
 	case []interface{}:
